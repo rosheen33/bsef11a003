@@ -1,0 +1,33 @@
+﻿@model EADProject.Models.product
+@{
+    Layout = "~/Views/shared/Layout2.cshtml";
+}
+
+            <!--<form method="post" action="/Home/signin1">
+                <br/><br/><br/>
+                <h2 style="text-align: center;">Add Catogary</h2> <br/><br/>
+           
+                    <p style="text-align: center;"><input type="text" class="blink" value="Enter Catogary" name="n1"/></p> <br/><br/><br/>
+                    <p style="text-align: center;"><input type="submit" name="Submit" value="Add"></p> <br/><br/><br/>
+                </form>-->
+
+
+<h1 class="register-title">Add Catogary</h1>
+                <form class="register " method="post" action="/admin/">
+                  <input type="text" class="register-input" placeholder="Enter Catogary"  name="n1"> 
+    <input type="submit" value="Add" class="register-button">
+  </form>
+
+
+@using (Html.BeginForm("", "Admin", FormMethod.Post, new { @class="register "}))
+{
+    <div>
+    @Html.LabelFor(m => m.catogary)
+    @Html.TextBoxFor(m => m.catogary, new { placeholder = "Enter Catogary", @class = "register-input" })
+   
+    
+        </div>
+    <input type="submit" value="ADd" class="register-button">
+
+}
+

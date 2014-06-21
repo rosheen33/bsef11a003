@@ -13,7 +13,6 @@
 x64/
 build/
 bld/
-[Bb]in/
 [Oo]bj/
 
 # MSTest test Results
@@ -141,7 +140,6 @@ AppPackages/
 # Others
 sql/
 *.Cache
-ClientBin/
 [Ss]tyle[Cc]op.*
 ~$*
 *~

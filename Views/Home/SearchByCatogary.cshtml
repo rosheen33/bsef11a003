@@ -1,0 +1,48 @@
+﻿@{
+    Layout = "~/Views/shared/Layout.cshtml";
+}
+
+
+                <h1 class="register-title">Search By Catogary</h1>
+                <form class="register " method="post" >
+                  <input type="text" class="register-input" placeholder="Enter Catogary"  id="n1"> 
+                 <input type="button" value="Search" class="register-button" id="b1">
+                </form>
+<br/>
+<br/>
+<br/>
+<div class="tabbed">
+          <div class="tab-content" style="display:block;">
+            <div class="items">
+              <div class="cl">&nbsp;</div>
+            <ul id="hide">
+
+            </ul>
+                </div>
+              </div>
+</div>
+@Scripts.Render("~/bundles/jquery")
+    <script>
+
+        $(document).ready(function () {
+
+            $('#hide').hide();
+
+            $('#b1').click(function () {
+
+                alert('User Name =');
+                $('#hide').show();
+                $.getJSON("/home/Search1?cat=" + $('#n1').val(), function (data)
+                {
+                    $.each(data, function (i, item) {
+                        $('#hide').append('<li><div class="image"> <a href="#"><img src="http://localhost:5263/' + item.path + '" alt="" /></a> </div><p> Item Number: <span>' + item.PId + '</span><br />Size List : <span>' + item.discription + '</span><br />Catogary: <a href="#">' + item.catogary + '</a> </p><p class="price">Wholesale Price: <strong>' + item.price + '</strong></p></li>');
+                       // $('#hide').append('<p> Item Number: <span>' + item.PId + '</span><br />');
+                        //$('#hide').append('Size List : <span>' + item.discription + '</span><br /></li>');
+
+                    });
+                });
+
+            });
+
+        });
+    </script>

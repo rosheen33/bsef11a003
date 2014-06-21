@@ -1,0 +1,72 @@
+﻿@model EADProject.Models.user
+@{
+    Layout = "~/Views/shared/Layout.cshtml";
+}
+
+
+<script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+
+                <h1 class="register-title">Welcome</h1>
+@using (Html.BeginForm("Signin1", "Home", FormMethod.Post, new { @class="register "}))
+{
+                   <div id="checking">Checking...</div>
+                    <div>
+
+                     @Html.TextBoxFor(m => m.username, new { placeholder = "Username", @class = "register-input" ,id="UserName"})
+                     @Html.ValidationMessageFor(m=>m.username)
+                     <input class="register-input" id="b1" type="button" value="check avaliability " >
+                     <div id="result"></div>
+   
+                    </div>
+
+                    @Html.TextBoxFor(m => m.password, new { placeholder = "Password", @class = "register-input" })
+                    @Html.ValidationMessageFor(m=>m.password)
+                    @Html.TextBoxFor(m => m.creditCard, new { placeholder = "Credit card number", @class = "register-input" })
+                    @Html.ValidationMessageFor(m=>m.creditCard)
+
+                    @Html.TextBoxFor(m => m.email, new { placeholder = "Email", @class = "register-input" })
+                    @Html.ValidationMessageFor(m=>m.email)
+                <input type="submit" value="Create Account" class="register-button">
+}
+
+ 
+    <script>
+
+        $(document).ready(function () {
+
+            $('#checking').hide();
+
+            $('#b1').click(function () {
+
+                var userName = $('#UserName').val();
+
+                //alert('User Name ='+ userName);
+                $('#checking').show();
+                $.getJSON("/home/CheckUserName?UserName=" + userName, function (data) {
+                    $('#checking').hide();
+                    if (data) {
+                        $('#result').text("User already exists in database");
+
+                    }
+                    else {
+                        $('#result').text("User Name is available");
+                    }
+                });
+
+            });
+
+        });
+    </script>
+
+
+
+
+
+
+

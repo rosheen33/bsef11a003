@@ -1,0 +1,67 @@
+﻿@{
+    Layout = "~/Views/shared/Layout.cshtml";
+}
+
+<div>
+<header>
+  <h1>Shopping Cart</h1>
+</header>
+
+<footer class="total-block cf">
+  <table>
+    <tbody>
+      @{<tr>
+        <td>Subtotal:</td>
+                @{int t=0;
+                foreach(var s in Model)
+                  {
+                      
+                      if (s.cutomerId == (int)Session["session"])
+                      {
+                          t = t + s.price;
+                      }
+                     
+                  }
+                  }
+          <td>$@t</td>
+          </tr>
+      <tr>
+        <td>Sales tax:</td>
+        <td>$3.00</td>
+      </tr>
+      <tr>
+        <td>Shipping:</td>
+        <td>$10.00</td>
+      </tr>
+      <tr>
+        <td>Total:</td>
+          <td>$@(t+3+10)</td>
+        
+      </tr>
+          }
+      
+    </tbody>
+  </table>
+  <button class="buy">Get it!</button>
+</footer>
+
+
+ @foreach(var s in Model)
+                  {
+                    if (s.cutomerId==(int)Session["session"])
+                    {
+                      <div class="product-block cf">
+                      <img src="http://localhost:5263/@s.path" alt="House Stark" class="sigil" />
+                        <div class="info">
+                        <p class="description">@s.discription</p>
+                        <p>
+                            <span class="price">@s.price</span> for <input type="number" class="quantity" /> sigil(s).
+                        </p>
+                        <button class="remove" onclick="location.href='@Url.Action("RemoveFromCart/"+@s.PId, "Home")'">remove item</button>
+                        </div>
+                        </div>
+     
+                    }
+                  }
+    </div>
+

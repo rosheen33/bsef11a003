@@ -1,0 +1,36 @@
+﻿@model EADProject.Models.admin
+@{
+    Layout = "~/Views/shared/Layout2.cshtml";
+}
+
+<script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<h1 class="register-title">Welcome</h1>
+            @*    <form class="register " method="post" action="/Admin/Validate">
+                  <input type="text" class="register-input" placeholder="Username"  name="n1"> 
+    <input type="password" class="register-input" placeholder="Password" name="p1">
+    <input type="submit" value="Sign Up" class="register-button">
+  </form>*@
+
+
+
+@using (Html.BeginForm("Validate", "Admin", FormMethod.Post, new { @class="register "}))
+{
+    @Html.ValidationSummary(true)
+    <div>
+    @Html.LabelFor(m => m.username)
+    @Html.TextBoxFor(m => m.username, new { placeholder = "Username", @class = "register-input" })
+    @Html.ValidationMessageFor(m=>m.username)
+   
+    
+    @Html.LabelFor(m => m.password)
+    @Html.TextBoxFor(m => m.password, new { placeholder = "Password", @class = "register-input" })
+        @Html.ValidationMessageFor(m=>m.password)
+        </div>
+    <input type="submit" value="Sign Up" class="register-button">
+
+}

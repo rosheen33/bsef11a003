@@ -1,0 +1,32 @@
+﻿@model EADProject.Models.product
+@{
+    Layout = "~/Views/shared/Layout2.cshtml";
+}
+
+
+
+<h1 class="register-title"> Add Product</h1>
+                <form class="register "  enctype="multipart/form-data" method="post" action="/admin/addP">
+                  <input type="text" class="register-input" placeholder="Enter catogary"  name="catogary"> 
+                    <input type="text" class="register-input" placeholder="Enter Description" name="discription">
+                    <input type="text" class="register-input" placeholder="Enter Price" name="price"/>
+                    <input type="file" name="file" id="file"  />
+    <input type="submit" value="Upload" class="register-button">
+  </form>
+
+@*<h1 class="register-title"> Add Product</h1>
+@using (Html.BeginForm("addP", "Admin", FormMethod.Post, new { @class = "register ", encType = "multipart/form-data" }))
+{
+    <div>
+    @Html.TextBoxFor(m => m.catogary, new { placeholder = "Catogary", @class = "register-input" })
+    @Html.TextBoxFor(m => m.discription, new { placeholder = "Description", @class = "register-input" })
+    @Html.TextBoxFor(m => m.price, new { placeholder = "Price", @class = "register-input" })
+    @Html.TextBoxFor(m => m.path, new { type = "file" ,placeholder="File" ,name="File",id="File"})
+
+
+        </div>
+    <input type="submit" value="Add" class="register-button">
+
+}*@
+                    
+

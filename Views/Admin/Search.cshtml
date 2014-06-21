@@ -1,0 +1,25 @@
+﻿@{
+    Layout = "~/Views/shared/Layout.cshtml";
+}
+        <!-- First Tab Content -->
+            <p>I am present in search page</p>
+          <div class="tab-content" style="display:block;">
+            <div class="items">
+              <div class="cl">&nbsp;</div>
+              <ul>
+                  @foreach(var s in Model)
+                  {
+                      <li>
+                     <div class="image"> <a href="#"><img src="http://localhost:5263/@s.path" alt="" /></a> </div>
+                        <p> Item Number: <span>@s.PId</span><br />
+                        Size List : <span>@s.discription</span><br />
+                        Catogary: <a href="#">@s.catogary</a> </p>
+                         <p class="price">Wholesale Price: <strong>@s.price</strong></p>
+                    </li>
+                  }
+                
+              </ul>
+              <div class="cl">&nbsp;</div>
+            </div>
+          </div>
+          <!-- End First Tab Content -->

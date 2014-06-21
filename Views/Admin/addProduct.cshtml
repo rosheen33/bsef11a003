@@ -1,0 +1,43 @@
+﻿
+@model EADProject.Models.product
+@{
+    Layout = "~/Views/shared/Layout2.cshtml";
+}
+
+
+<script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+@*<h1 class="register-title"> Add Product</h1>
+                <form class="register "  enctype="multipart/form-data" method="post" action="/admin/addP">
+                  <input type="text" class="register-input" placeholder="Enter catogary"  name="catogary"> 
+                    <input type="text" class="register-input" placeholder="Enter Description" name="discription">
+                    <input type="text" class="register-input" placeholder="Enter Price" name="price"/>
+                    <input type="file" name="file" id="file1"  />
+    <input type="submit" value="Upload" class="register-button">
+  </form>*@
+
+<h1 class="register-title"> Add Product</h1>
+@using (Html.BeginForm("addP", "Admin", FormMethod.Post, new { @class = "register ", encType = "multipart/form-data" }))
+{
+    <div>
+    @Html.TextBoxFor(m => m.catogary, new { placeholder = "Catogary", @class = "register-input" })
+
+    @Html.ValidationMessageFor(m=>m.catogary)
+    @Html.TextBoxFor(m => m.discription, new { placeholder = "Description", @class = "register-input" })
+    @Html.ValidationMessageFor(m=>m.discription)
+    @Html.TextBoxFor(m => m.price, new { placeholder = "Price", @class = "register-input" })
+        @Html.ValidationMessageFor(m=>m.price)
+    <input type="file" name="file" id="file"  />
+
+
+        </div>
+    <input type="submit" value="Add" class="register-button">
+
+}
+                    
+
