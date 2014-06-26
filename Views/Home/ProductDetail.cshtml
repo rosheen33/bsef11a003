@@ -1,0 +1,34 @@
+﻿@{
+    Layout = "~/Views/shared/Layout.cshtml";
+}
+<link href="~/Content/style6.css" rel="stylesheet" />
+<div class="product">
+  <div class="product--title">
+    <h2>Product Details</h2>
+  </div>
+  <div class="product--body">
+  <div class="product--image">
+      
+    <br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://localhost:5263/@Model.path" class="display-img">
+  </div>
+  <div class="product--details">
+  <div class="product--price">
+    <span class="product--price_price">Rs. @Model.price</span>
+  </div>
+    <div class="product--desc"><p>@Model.discription</p></div>
+  <div class="product--size">
+    <span>s</span>
+    <span class="active">m</span>
+    <span>l</span>
+    <span>xl</span>
+  </div>
+  <div class="product--quantity">
+    <input class="quantity" type="number" placeholder="quantity" min="1" max="10" value="1"/>
+  </div>
+    <div class="add-to-cart">
+      <button class="btn btn--cart" onclick="location.href='@Url.Action("AddToCart/"+@Model.PId, "Home")'">Add to Cart!</button>
+    </div>
+  </div>
+  </div>
+</div>

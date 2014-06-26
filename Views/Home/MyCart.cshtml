@@ -15,11 +15,7 @@
                 @{int t=0;
                 foreach(var s in Model)
                   {
-                      
-                      if (s.cutomerId == (int)Session["session"])
-                      {
                           t = t + s.price;
-                      }
                      
                   }
                   }
@@ -48,8 +44,8 @@
 
  @foreach(var s in Model)
                   {
-                    if (s.cutomerId==(int)Session["session"])
-                    {
+                    
+                    
                       <div class="product-block cf">
                       <img src="http://localhost:5263/@s.path" alt="House Stark" class="sigil" />
                         <div class="info">
@@ -61,7 +57,7 @@
                         </div>
                         </div>
      
-                    }
+                    
                   }
     </div>
 
